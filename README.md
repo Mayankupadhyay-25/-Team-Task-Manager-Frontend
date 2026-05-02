@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Team Task Manager — Frontend
+
+Frontend built with Next.js, Tailwind CSS, and React Context API.
+
+## Live URL
+
+https://team-task-manager-frontend-mu.vercel.app
+
+---
+
+## Tech Stack
+
+| Tech | Version |
+|------|---------|
+| Next.js | 16.2.4 |
+| React | 19.2.4 |
+| Tailwind CSS | 4 |
+| Axios | 1.15.2 |
+
+---
+
+## Project Structure
+
+```
+frontend/
+├── app/
+│   ├── dashboard/page.js     # Dashboard with task stats
+│   ├── login/page.js         # Login page
+│   ├── signup/page.js        # Signup page
+│   ├── projects/page.js      # Projects list + create
+│   ├── tasks/page.js         # Kanban task board
+│   ├── layout.js             # Root layout
+│   └── page.js               # Redirects to /dashboard
+├── components/
+│   ├── AppShell.js           # Sidebar + layout wrapper
+│   ├── Sidebar.js            # Navigation sidebar
+│   └── ProtectedRoute.js     # Auth guard component
+├── context/
+│   └── AuthContext.js        # Global auth state
+├── services/
+│   └── api.js                # Axios instance
+└── package.json
+```
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Create `.env.local` file
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
+
+### 3. Run the app
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+App runs on `http://localhost:3000`
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pages
 
-## Learn More
+| Route | Description |
+|-------|-------------|
+| `/` | Redirects to `/dashboard` |
+| `/signup` | Register a new account |
+| `/login` | Login to existing account |
+| `/dashboard` | Task stats overview |
+| `/projects` | Create and manage projects |
+| `/tasks` | Kanban board per project |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment (Vercel)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Push to GitHub
+2. Import repo on [vercel.com](https://vercel.com)
+3. Add environment variable in Vercel dashboard:
+   - `NEXT_PUBLIC_API_URL` = `https://your-backend.vercel.app/api`
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```env
+NEXT_PUBLIC_API_URL=http://localhost:5000/api
+```
